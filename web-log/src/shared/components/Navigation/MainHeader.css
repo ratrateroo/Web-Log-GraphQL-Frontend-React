@@ -1,0 +1,53 @@
+:root {
+    /*Veneziano Coffee Roasters*/
+    --Cream: #F6F4F2;
+    --Teal: #425664;
+    --Mocha: #C6AD8F;
+    /*Slumber*/
+    --Midnight: #051622;
+    --Ocean: #1BA098;
+    --Cappuccino: #DEB992;
+    /*Copie de Copie de eet*/
+    --AshFall: #8C8474;
+    --VolcanicRock: #272425;
+    --CreamyWhite: #F3F5D8;
+    --MachaGreen: #384001;
+    --GrassyGreen: #849609;
+}
+
+.main-navigation {
+    background-color: var(--English-Green);
+    display: flex;
+    justify-content: center;
+    
+    
+    
+}
+.main-navigation .nav-links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 32px;
+}
+
+.main-navigation .active {
+    color: var(--Aztec-Gold);
+}
+
+.main-navigation .nav-link {
+    margin: 0 0.3rem;
+}
+
+.main-navigation .nav-link a{
+    font-size: 20px;
+}
+
+.main-navigation .nav-link .active {
+    color: var(--Aztec-Gold);
+}
+.main-navigation .nav-link-item {
+    text-decoration: none;
+    color: var(--color1);
+    font-size: 0.8rem;
+    font-weight: bold;
+}

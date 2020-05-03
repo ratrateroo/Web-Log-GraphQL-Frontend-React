@@ -9,14 +9,14 @@ const UserItem = props => {
   return (
     <li className="user-item">
       <Card className="user-item__content">
-        <Link to={`/${props.id}/places`}>
+        <Link to={`/${props.id}/blogs`}>
           <div className="user-item__image">
             <Avatar image={props.image} alt={props.name} />
           </div>
           <div className="user-item__info">
             <h2>{props.name}</h2>
             <h3>
-              {props.placeCount} {props.placeCount === 1 ? 'Place' : 'Places'}
+              {props.blogCount} {props.blogCount === 1 ? 'Blog' : 'Blogs'}
             </h3>
           </div>
         </Link>
