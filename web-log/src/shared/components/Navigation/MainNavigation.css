@@ -1,0 +1,33 @@
+.main-navigation {
+  background-color: var(--English-Green);
+  display: flex;
+  justify-content: center;
+}
+.main-navigation .nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 32px;
+}
+
+.main-navigation .active {
+  color: var(--Aztec-Gold);
+}
+
+.main-navigation .nav-link {
+  margin: 0 0.3rem;
+}
+
+.main-navigation .nav-link a {
+  font-size: 20px;
+}
+
+.main-navigation .nav-link .active {
+  color: var(--Aztec-Gold);
+}
+.main-navigation .nav-link-item {
+  text-decoration: none;
+  color: var(--color1);
+  font-size: 0.8rem;
+  font-weight: bold;
+}

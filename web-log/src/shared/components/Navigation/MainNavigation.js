@@ -9,7 +9,7 @@ const MainNavigation = props => {
     return (
 
         <MainHeader>
-        <h1><Link to="/">Your Blogs</Link></h1>
+        
         <nav className="main-navigation">
         <ul className="nav-links">
             <li className="nav-link"><a href="../index.html" className="nav-link-item active">Link</a></li>
@@ -29,6 +29,7 @@ const MainNavigation = props => {
             </li>
         </ul>
     </nav>
+    <h1><Link to="/">Your Blogs</Link></h1>
     </MainHeader>   );
 
 };
