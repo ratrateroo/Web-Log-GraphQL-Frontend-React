@@ -4,18 +4,31 @@ import { Link } from 'react-router-dom';
 
 import MainHeader from './MainHeader';
 import NavLinks from './NavLinks';
+import SideDrawer from './SideDrawer';
+
 import './MainNavigation.css';
 
 const MainNavigation = props => {
     return (
-
+      <React.Fragment>
+      <SideDrawer>
+      <nav className="main-navigation__drawer-nav">
+        <NavLinks />
+      </nav>
+    </SideDrawer>
         <MainHeader>
-        
+        <button className="main-navigation__menu-btn">
+          <span />
+          <span />
+          <span />
+        </button>
         <nav className="main-navigation">
       <NavLinks />
     </nav>
     <h1><Link to="/">Your Blogs</Link></h1>
-    </MainHeader>   );
+    </MainHeader>   
+    </React.Fragment>
+    );
 
 };
 
