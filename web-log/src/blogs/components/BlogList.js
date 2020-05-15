@@ -18,7 +18,7 @@ const BlogList = props => {
     }
 
     return <ul className="blog-list">
-        {props.items.map(blog => <BlogItem key={blog.id} id={blog.id} image={blog.imageUrl} title={blog.title} creatorId={blog.creator}/>)}
+        {props.items.map(blog => <BlogItem key={blog.id} id={blog.id} image={blog.imageUrl} title={blog.title} creatorId={blog.creator} description={blog.description} />)}
     </ul>
 };
 
