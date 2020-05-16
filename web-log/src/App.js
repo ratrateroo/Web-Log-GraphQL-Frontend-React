@@ -3,20 +3,26 @@ import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-do
 
 import Users from  './user/pages/Users';
 import NewBlog from './blogs/pages/NewBlog';
+import UserBlogs from './blogs/pages/UserBlogs';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 const App = () => {
-  return <Router>
+  return (
+  <Router>
     <MainNavigation/>
-    <Switch>
-    <Route path="/" exact>
-      <Users />
-    </Route>
-    <Route path="/blogs/new" exact>
-      <NewBlog />
-    </Route>
-    <Redirect to="/" />
-    </Switch>
+      <Switch>
+        <Route path="/" exact>
+          <Users />
+        </Route>
+        <Route path="/:userId/blogs">
+          <UserBlogs />
+        </Route>
+        <Route path="/blogs/new" exact>
+          <NewBlog />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
   </Router>
+  )
 }
 
 export default App;
