@@ -13,7 +13,7 @@ const App = () => {
         <Route path="/" exact>
           <Users />
         </Route>
-        <Route path="/:userId/blogs">
+        <Route path="/:userId/blogs" exact>
           <UserBlogs />
         </Route>
         <Route path="/blogs/new" exact>
