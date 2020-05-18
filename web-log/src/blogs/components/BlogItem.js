@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
+import Button from '../../shared/components/FormElements/Button';
 import './BlogItem.css';
 
 const BlogItem = props => {
@@ -15,9 +16,9 @@ const BlogItem = props => {
         <p>{props.description}</p>
         </div>
         <div className="blog-item__actions">
-            <button>View</button>
-            <button>Edit</button>
-            <button>Delete</button>
+            <Button inverse>View</Button>
+            <Button to={`/blogs/${props.id}`}>Edit</Button>
+            <Button danger>Delete</Button>
         </div>
         </Card>
     </li>
