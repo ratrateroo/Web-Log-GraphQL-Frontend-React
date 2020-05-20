@@ -19,7 +19,11 @@ const BlogItem = props => {
         header={props.address}
         contentClass="blog-item__modal-content"
         footerClass="blog-item__modal-actions"
-        footer={<Button onClick={closeMapHandler}>Close</Button>}/>
+        footer={<Button onClick={closeMapHandler}>Close</Button>}>
+            <div className="map-container">
+                <h2>The Map</h2>
+            </div>
+        </Modal>
         <li className="blog-item">
             <Card className="blog-item__content">
                 <div className="blog-item__image">
@@ -31,7 +35,7 @@ const BlogItem = props => {
                     <p>{props.description}</p>
                 </div>
                 <div className="blog-item__actions">
-                    <Button inverse>View</Button>
+                    <Button inverse onClick={opemMapHandler}>View</Button>
                     <Button to={`/blogs/${props.id}`}>Edit</Button>
                     <Button danger>Delete</Button>
                 </div>
