@@ -1,7 +1,9 @@
 import React from 'react';
 
 const NewBlog = () => {
-    return <h2>New Blog Works!</h2>
+    return <form className="blog-form">
+        <Input type="text" label="Title" />
+    </form>
 };
 
 export default NewBlog;

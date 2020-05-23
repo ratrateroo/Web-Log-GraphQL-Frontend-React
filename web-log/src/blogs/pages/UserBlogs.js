@@ -24,4 +24,4 @@ const UserBlogs = () => {
     return <BlogList items={loadedBlogs}/>
 };
 
-export default UserBlogs
+export default UserBlogs;
