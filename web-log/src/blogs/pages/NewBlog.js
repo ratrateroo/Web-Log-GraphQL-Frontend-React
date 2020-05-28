@@ -5,7 +5,7 @@ import './NewBlog.css';
 
 const NewBlog = () => {
     return <form className="blog-form">
-        <Input type="text" label="Title" validators={[]} />
+        <Input type="text" label="Title" validators={[]} errorText="Please enter a valid title"/>
     </form>
 };
 
