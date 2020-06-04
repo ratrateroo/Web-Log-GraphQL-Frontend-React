@@ -44,12 +44,19 @@ const NewBlog = () => {
         },
         isValid: false
     });
+
     const inputHandler = useCallback((id, value, isValid) => {
         dispatch({type: 'INPUT_CHANGE', value: value, isValid: isValid, inputId: id})
     }, []);
 
+    const placeSubmitHandler = event => {
+        event.preventDefault();
+        console.log(formState.inputs);
+    };
 
-    return <form className="blog-form">
+
+
+    return <form className="blog-form" onSubmit={placeSubmitHandler}>
         <Input
         id="title"
         element="input"
