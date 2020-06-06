@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-do
 import Users from  './user/pages/Users';
 import NewBlog from './blogs/pages/NewBlog';
 import UserBlogs from './blogs/pages/UserBlogs';
+import UpdateBlog from './blogs/components/UpdateBlog';
+
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 const App = () => {
   return (
@@ -18,6 +20,9 @@ const App = () => {
         </Route>
         <Route path="/blogs/new" exact>
           <NewBlog />
+        </Route>
+        <Route path="/blogs/:blogId">
+          <UpdateBlog/>
         </Route>
         <Redirect to="/" />
       </Switch>
