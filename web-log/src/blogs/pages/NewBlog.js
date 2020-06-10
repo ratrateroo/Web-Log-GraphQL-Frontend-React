@@ -3,29 +3,28 @@ import React , { useCallback, useReducer } from 'react';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import { VALIDATOR_REQUIRE, VALIDATOR_MAXLENGTH } from '../../shared/util/validators'
+import { useForm } from '../../shared/hooks/form-hook';
 import './BlogForm.css';
 
 
 
 const NewBlog = () => {
-    const [formState, dispatch] = useReducer(formReducer, {
-        inputs: {
-            title: {
-                value: '',
-                isValid: false
-            },
-            description: {
-                value: '',
-                isValid: false
-            }
+
+    const [formState, inputHandler] = useForm({
+
+        title: {
+            value: '',
+            isValid: false
         },
-        isValid: false
-    });
+        description: {
+            value: '',
+            isValid: false
+        }
+    }
+    );
+    
 
-    const inputHandler = useCallback((id, value, isValid) => {
-        dispatch({type: 'INPUT_CHANGE', value: value, isValid: isValid, inputId: id})
-    }, []);
-
+    
     const placeSubmitHandler = event => {
         event.preventDefault();
         console.log(formState.inputs);
