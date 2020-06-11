@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import {VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH} from '../../shared/util/validators';
+import { useForm } from '../../shared/hooks/form-hook';
 import './BlogForm.css';
 
 
@@ -27,6 +28,22 @@ const UpdateBlog = () => {
 
     const identifiedBlog = DUMMY_BLOGS.find(blog => blog.id === blogId);
 
+    const [formState, inputHandler] = useForm({
+        title: {
+            value: identifiedBlog.title,
+            isValid: true
+        },
+        description: {
+            value: identifiedBlog.description,
+            isValid: true
+        }
+    }, true);
+
+    const blogUpdateSubmitHandler = event => {
+        event.preventDefault();
+        console.log(formState.inputs);
+    };
+
     if(!identifiedBlog) {
         return (
             <div>
@@ -42,9 +59,9 @@ const UpdateBlog = () => {
             label="Title"
             validators={[VALIDATOR_REQUIRE()]}
             errorText="Please enter a valid title."
-            onInput={() => {}}
-            value={identifiedBlog.title}
-            valid={true}
+            onInput={inputHandler}
+            initialValue={formState.inputs.title.value}
+            initialValid={formState.inputs.title.isValid}
             />
 
 <Input 
@@ -53,11 +70,11 @@ const UpdateBlog = () => {
             label="Description"
             validators={[VALIDATOR_MINLENGTH(5)]}
             errorText="Please enter a valid description."
-            onInput={() => {}}
-            value={identifiedBlog.description}
-            valid={true}
+            onInput={inputHandler}
+            initialValue={formState.inputs.description.value}
+            initialValid={formState.inputs.description.isValid}
             />
-        <Button type="submit" disabled={true}>Update Blog</Button>
+        <Button type="submit" disabled={!formState.isValid}>Update Blog</Button>
     </form>
 };
 
