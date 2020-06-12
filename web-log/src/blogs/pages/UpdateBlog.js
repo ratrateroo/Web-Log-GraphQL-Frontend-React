@@ -30,12 +30,12 @@ const UpdateBlog = () => {
 
     const [formState, inputHandler] = useForm({
         title: {
-            value: identifiedBlog.title,
-            isValid: true
+            value: '',
+            isValid: false
         },
         description: {
-            value: identifiedBlog.description,
-            isValid: true
+            value: '',
+            isValid: false
         }
     }, true);
 
