@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -26,9 +26,8 @@ const DUMMY_BLOGS = [
 const UpdateBlog = () => {
     const blogId = useParams().blogId;
 
-    const identifiedBlog = DUMMY_BLOGS.find(blog => blog.id === blogId);
-
-    const [formState, inputHandler] = useForm({
+    
+    const [formState, inputHandler, setFormData] = useForm({
         title: {
             value: '',
             isValid: false
@@ -37,7 +36,23 @@ const UpdateBlog = () => {
             value: '',
             isValid: false
         }
-    }, true);
+    }, false);
+    
+    const identifiedBlog = DUMMY_BLOGS.find(blog => blog.id === blogId);
+    
+    useEffect(() => {
+setFormData({
+        title: {
+        value: identifiedBlog.title,
+        isValid: true
+    },
+    description: {
+        value: identifiedBlog.description,
+        isValid: true
+    }}, true);
+    }, [setFormData, identifiedBlog]);
+
+    
 
     const blogUpdateSubmitHandler = event => {
         event.preventDefault();
