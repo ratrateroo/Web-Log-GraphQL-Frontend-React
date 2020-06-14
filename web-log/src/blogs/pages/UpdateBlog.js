@@ -66,7 +66,18 @@ setFormData({
             </div>
         );
     }
-    return <form>
+
+    if(!formState.inputs.title.value) {
+        return (
+            <div>
+                <h2>Loading...</h2>
+            </div>
+        );
+    }
+
+    return (
+   
+    <form>
         <Input 
             id="title"
             element="input"
@@ -90,7 +101,7 @@ setFormData({
             initialValid={formState.inputs.description.isValid}
             />
         <Button type="submit" disabled={!formState.isValid}>Update Blog</Button>
-    </form>
+    </form>)
 };
 
 export default UpdateBlog;
