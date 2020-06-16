@@ -77,7 +77,7 @@ setFormData({
 
     return (
    
-    <form>
+    <form onSubmit={blogUpdateSubmitHandler}>
         <Input 
             id="title"
             element="input"
