@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -24,6 +24,7 @@ const DUMMY_BLOGS = [
 ];
 
 const UpdateBlog = () => {
+    const [isLoading, setIsLoading] = useState(true)
     const blogId = useParams().blogId;
 
     
@@ -50,6 +51,7 @@ setFormData({
         value: identifiedBlog.description,
         isValid: true
     }}, true);
+    setIsLoading(false);
     }, [setFormData, identifiedBlog]);
 
     
