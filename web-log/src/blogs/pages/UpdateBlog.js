@@ -41,7 +41,9 @@ const UpdateBlog = () => {
     
     const identifiedBlog = DUMMY_BLOGS.find(blog => blog.id === blogId);
     
-    useEffect(() => {setFormData({
+    useEffect(() => {
+      if(identifiedBlog) {
+        setFormData({
         title: {
         value: identifiedBlog.title,
         isValid: true
@@ -50,6 +52,9 @@ const UpdateBlog = () => {
         value: identifiedBlog.description,
         isValid: true
     }}, true);
+      }
+      
+      
     setIsLoading(false);
     }, [setFormData,identifiedBlog]);
 
