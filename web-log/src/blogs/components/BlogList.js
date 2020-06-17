@@ -2,6 +2,7 @@ import React from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
 import BlogItem from './BlogItem';
+import Button from '../../shared/components/FormElements/Button';
 import './BlogList.css'
 
 
@@ -11,7 +12,7 @@ const BlogList = props => {
         <div className="blog-list center">
             <Card>
                 <h2>No Blogs Found.</h2>
-                <button>Share a Blog</button>
+                <Button to="/blogs/new">Share a Blog</Button>
             </Card>
         </div>
         );

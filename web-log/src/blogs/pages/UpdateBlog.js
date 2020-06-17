@@ -25,7 +25,7 @@ const DUMMY_BLOGS = [
 
 const UpdateBlog = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const blogId = useParams().blogId;
+    const {blogId} = useParams();
 
     
     const [formState, inputHandler, setFormData] = useForm({
@@ -41,8 +41,7 @@ const UpdateBlog = () => {
     
     const identifiedBlog = DUMMY_BLOGS.find(blog => blog.id === blogId);
     
-    useEffect(() => {
-setFormData({
+    useEffect(() => {setFormData({
         title: {
         value: identifiedBlog.title,
         isValid: true
@@ -52,7 +51,7 @@ setFormData({
         isValid: true
     }}, true);
     setIsLoading(false);
-    }, [setFormData, identifiedBlog]);
+    }, [setFormData,identifiedBlog]);
 
     
 
@@ -63,47 +62,48 @@ setFormData({
 
     if(!identifiedBlog) {
         return (
-            <div>
-                <h2>Could not find blog!</h2>
-            </div>
+          <div>
+            <h2>Could not find blog!</h2>
+          </div>
         );
     }
 
-    if(!formState.inputs.title.value) {
+    if(!isLoading) {
         return (
-            <div>
-                <h2>Loading...</h2>
-            </div>
+          <div>
+            <h2>Loading...</h2>
+          </div>
         );
     }
 
     return (
    
-    <form onSubmit={blogUpdateSubmitHandler}>
+      <form onSubmit={blogUpdateSubmitHandler}>
         <Input 
-            id="title"
-            element="input"
-            type="text"
-            label="Title"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid title."
-            onInput={inputHandler}
-            initialValue={formState.inputs.title.value}
-            initialValid={formState.inputs.title.isValid}
-            />
+          id="title"
+          element="input"
+          type="text"
+          label="Title"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid title."
+          onInput={inputHandler}
+          initialValue={formState.inputs.title.value}
+          initialValid={formState.inputs.title.isValid}
+        />
 
-<Input 
-            id="description"
-            element="textarea"
-            label="Description"
-            validators={[VALIDATOR_MINLENGTH(5)]}
-            errorText="Please enter a valid description."
-            onInput={inputHandler}
-            initialValue={formState.inputs.description.value}
-            initialValid={formState.inputs.description.isValid}
-            />
+        <Input 
+          id="description"
+          element="textarea"
+          label="Description"
+          validators={[VALIDATOR_MINLENGTH(5)]}
+          errorText="Please enter a valid description."
+          onInput={inputHandler}
+          initialValue={formState.inputs.description.value}
+          initialValid={formState.inputs.description.isValid}
+        />
         <Button type="submit" disabled={!formState.isValid}>Update Blog</Button>
-    </form>)
+      </form>
+)
 };
 
 export default UpdateBlog;
