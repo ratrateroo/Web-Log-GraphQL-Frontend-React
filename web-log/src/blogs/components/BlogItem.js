@@ -12,7 +12,7 @@ const BlogItem = props => {
 
     const closeMapHandler = () => setShowMap(false);
 
-    return 
+    return (
     <React.Fragment>
         <Modal show={showMap}
         onCancel={closeMapHandler}
@@ -42,6 +42,7 @@ const BlogItem = props => {
             </Card>
         </li>
     </React.Fragment>
+    )
 };
 
 export default BlogItem;
