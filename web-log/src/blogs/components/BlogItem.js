@@ -7,10 +7,23 @@ import './BlogItem.css';
 
 const BlogItem = props => {
     const [showMap, setShowMap] = useState(false);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
 
     const opemMapHandler = () => setShowMap(true);
 
     const closeMapHandler = () => setShowMap(false);
+
+    const showDeleteWarningHandler = () => {
+        setShowConfirmModal(true);
+    };
+
+    const cancelDeleteModal = () => {
+        setShowConfirmModal(false);
+    };
+
+    const confirmDeletehandler = () => {
+        console.log('DELETING');
+    }
 
     return (
     <React.Fragment>
@@ -23,6 +36,14 @@ const BlogItem = props => {
             <div className="map-container">
                 <h2>The Map</h2>
             </div>
+        </Modal>
+        <Modal header="Are you sure?" footerClass="place-item__modal-actions" footer={
+            <React.Fragment>
+                <Button inverse>CANCEL</Button>
+                <Button danger>DELETE</Button>
+            </React.Fragment>
+        }>
+            <p>Do you want to proceed and delete this blog?</p>
         </Modal>
         <li className="blog-item">
             <Card className="blog-item__content">
