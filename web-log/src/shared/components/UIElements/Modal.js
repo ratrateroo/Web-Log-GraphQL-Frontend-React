@@ -1,5 +1,5 @@
 import React from 'react';
-import RactDOM from 'react-dom'
+import ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group';
 
 import './Modal.css';

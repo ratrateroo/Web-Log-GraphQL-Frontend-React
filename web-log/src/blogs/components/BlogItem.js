@@ -17,13 +17,14 @@ const BlogItem = props => {
         setShowConfirmModal(true);
     };
 
-    const cancelDeleteModal = () => {
+    const cancelDeleteHandler = () => {
         setShowConfirmModal(false);
     };
 
-    const confirmDeletehandler = () => {
-        console.log('DELETING');
-    }
+    const confirmDeleteHandler = () => {
+        setShowConfirmModal(false);
+    };
+    
 
     return (
     <React.Fragment>
@@ -37,10 +38,15 @@ const BlogItem = props => {
                 <h2>The Map</h2>
             </div>
         </Modal>
-        <Modal header="Are you sure?" footerClass="place-item__modal-actions" footer={
+        <Modal 
+        show={showConfirmModal}
+        onCancel={cancelDeleteHandler}
+        header="Are you sure?" 
+        footerClass="blog-item__modal-actions" 
+        footer={
             <React.Fragment>
-                <Button inverse>CANCEL</Button>
-                <Button danger>DELETE</Button>
+                <Button inverse onCancel={cancelDeleteHandler}>CANCEL</Button>
+                <Button danger onCancel={confirmDeleteHandler}>DELETE</Button>
             </React.Fragment>
         }>
             <p>Do you want to proceed and delete this blog?</p>
@@ -58,12 +64,12 @@ const BlogItem = props => {
                 <div className="blog-item__actions">
                     <Button inverse onClick={opemMapHandler}>View</Button>
                     <Button to={`/blogs/${props.id}`}>Edit</Button>
-                    <Button danger>Delete</Button>
+                    <Button danger onCancel={showDeleteWarningHandler}>Delete</Button>
                 </div>
             </Card>
         </li>
     </React.Fragment>
-    )
+    );
 };
 
 export default BlogItem;
