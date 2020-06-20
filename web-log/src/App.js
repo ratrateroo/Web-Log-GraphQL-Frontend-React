@@ -5,6 +5,7 @@ import Users from  './user/pages/Users';
 import NewBlog from './blogs/pages/NewBlog';
 import UserBlogs from './blogs/pages/UserBlogs';
 import UpdateBlog from './blogs/pages/UpdateBlog';
+import Auth from './user/pages/Auth';
 
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 const App = () => {
@@ -23,6 +24,9 @@ const App = () => {
         </Route>
         <Route path="/blogs/:blogId">
           <UpdateBlog/>
+        </Route>
+        <Route path="/auth">
+          <Auth/>
         </Route>
         <Redirect to="/" />
       </Switch>
