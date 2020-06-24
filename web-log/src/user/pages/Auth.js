@@ -24,6 +24,7 @@ const Auth = () => {
         if (!isLoginMode) {
             setFormData(
                 {
+                    ...formState.inputs,
                     name: undefined
                 }, 
                 formState.inputs.email.isValid && formState.inputs.password.isValid)
