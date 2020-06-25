@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useCallback }from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
 import Users from  './user/pages/Users';
@@ -8,9 +8,14 @@ import UpdateBlog from './blogs/pages/UpdateBlog';
 import Auth from './user/pages/Auth';
 
 import MainNavigation from './shared/components/Navigation/MainNavigation';
+import { AuthContext } from './shared/context/auth-context';
+
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   return (
-  <Router>
+  <AuthContext.Provider>
+    <Router>
     <MainNavigation/>
       <Switch>
         <Route path="/" exact>
@@ -31,6 +36,8 @@ const App = () => {
         <Redirect to="/" />
       </Switch>
   </Router>
+  </AuthContext.Provider>
+  
   )
 }
 
