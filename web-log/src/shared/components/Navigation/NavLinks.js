@@ -9,9 +9,19 @@ const NavLinks = props => {
         
        
         <ul className="nav-links">
-            <li className="nav-link"><a href="../index.html" className="nav-link-item active">Link</a></li>
-            <li className="nav-link"><a href="../Blog List/Blog List.html" className="nav-link-item">Blog
-                    List</a></li>
+            <li>
+                <NavLink to="/" exact>All Users</NavLink>
+            </li>
+            <li>
+                <NavLink to="/u1/blogs" exact>My Blogs</NavLink>
+            </li>
+            <li className="nav-link">
+                <a href="../index.html" className="nav-link-item active">Link</a>
+            </li>
+            <li className="nav-link">
+                <a href="../Blog List/Blog List.html" className="nav-link-item">Blog
+                    List</a>
+            </li>
             <li className="nav-link"><a href="../Blog/Blog.html" className="nav-link-item">Blog</a></li>
             <li className="nav-link"><a href="../Sidebar/Sidebar.html" className="nav-link-item">Sidebar</a></li>
             <li className="nav-link"><a href="../Signup/Signup.html" className="nav-link-item">Sign Up</a></li>
