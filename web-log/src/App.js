@@ -23,7 +23,20 @@ const App = () => {
    let routes;
 
     if (isLoggedIn) {
-        routes = ();
+        routes = (
+          <React.Fragment>
+<Route path="/" exact>
+          <Users />
+        </Route>
+        <Route path="/:userId/blogs" exact>
+          <UserBlogs />
+        </Route>
+        <Route path="/auth">
+          <Auth/>
+        </Route>
+        <Redirect to="/auth" />
+            </React.Fragment>
+        );
     } else {
         
         routes = (
