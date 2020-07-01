@@ -1,5 +1,6 @@
 {
     "env": {
+        "browser": true,
         "es2020": true
     },
     "extends": [
@@ -16,7 +17,7 @@
     "plugins": [
         "react"
     ],
-    "parser":"babel-eslint",
     "rules": {
-  }
+        "no-unused-vars":"warn"
+    }
 }

@@ -10,22 +10,23 @@ import Auth from './user/pages/Auth';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
 
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const login = useCallback(() => {
-    setIsLoggedIn(true)
+    setIsLoggedIn(true) 
   }, []);
 
   const logout = useCallback(() => {
-    setIsLoggedIn(false)
+    setIsLoggedIn(false) 
   }, []);
 
    let routes;
 
     if (isLoggedIn) {
         routes = (
-          <React.Fragment>
-<Route path="/" exact>
+        <React.Fragment>
+        <Route path="/" exact>
           <Users />
         </Route>
         <Route path="/:userId/blogs" exact>
